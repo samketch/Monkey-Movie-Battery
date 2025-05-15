@@ -1,6 +1,6 @@
 
 # Main script written by Ian Goodall-Halliwell. Subscripts are individually credited. Many have been extensively modified, for better or for worse (probably for worse o__o ).
-#checking to ensure it is seperate from movie-battery-sam
+
 from psychopy import visual 
 from psychopy import core, gui, event
 
