@@ -157,7 +157,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
     
 
     # user can update instructions for task here if required.
-    instructions =      """This experiment will require you to watch a set of 4 episodes of the TV series 'Friends'.
+    instructions =      """This experiment will require you to watch a set of 4 Movie Clips.
 
                     \nYou will not be able to pause or rewind. 
 
@@ -290,7 +290,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
             break
 
     #at the end of each clip, present comprehension questions
-    if filename[1] == "resources/Movie_Task/videos/friends1.mp4":
+    if filename[1] == "resources/Movie_Task/videos/goodBad.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 1, participant_id, videoname, responses_data)
@@ -302,7 +302,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
         save_seen_csv(seen_data, participant_id, clipname, seed)
         #core.quit() #use this to debug
 
-    if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
+    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
@@ -313,7 +313,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
         seen_data = present_seen_question(win, stim, 14, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
+    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 7, participant_id, videoname, responses_data)
@@ -324,7 +324,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
         seen_data = present_seen_question(win, stim, 15, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
+    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 10, participant_id, videoname, responses_data)
