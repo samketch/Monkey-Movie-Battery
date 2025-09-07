@@ -48,7 +48,7 @@ def check_spacing(numbers, min_participant_break, probe_interval):
     for i in range(len(numbers) - 1):
         spacing = abs(numbers[i] - numbers[i+1])
         
-        if spacing < (min_participant_break ) or spacing in spacings:
+        if spacing < (min_participant_break ): #or spacing in spacings:
             return False, []  # Return an empty list along with False
         
         spacings.add(spacing)
@@ -170,13 +170,13 @@ def create_value_mapping(num_participants, probe_interval):
 # directory = "C:\\Users\\raven\\Documents\\Repositories\\FiveMovieParadigm\\Tasks\\taskScripts\\resources\\Movie_Task\\csv"
 
 # Experiment parameters
-num_clips = 4 # set to how many clips you have
-preclip_min = 0.5 # set to how many minutes before 1st probe
-clip_min = 20 # set to how many minutes of probing in each clip
-probe_coverage_duration_min = 4 # how often, roughly, do you want to interupt each person (in minutes)
-probe_interval = 10  # how often do you want probes across participants (in seconds)
-min_participant_break = 60  # what is the min amount of time between a probe for a person (in seconds)
-num_samples_per_interval = 5 # how many participants do you want at each interval
+num_clips = 6 # set to how many clips you have
+preclip_min = 1 # set to how many minutes before 1st probe
+clip_min = 10 # set to how many minutes of probing in each clip
+probe_coverage_duration_min = 2 # how often, roughly, do you want to interupt each person (in minutes)
+probe_interval = 5  # how often do you want probes across participants (in seconds)
+min_participant_break = 30  # what is the min amount of time between a probe for a person (in seconds)
+num_samples_per_interval = 10 # how many participants do you want at each interval
 
 ############################## Calculations ###################################
 preclip_secs = preclip_min * 60 # how many seconds before 1st probe
@@ -268,44 +268,44 @@ order_keys = [str(int(key) - 1) for key in order_keys_from1]
 # ensuring that for any one person, clip orders are not the same between clips
 # and that, for each clip every N participants, one of the orders is used
 
-while True:
+#while True:
     # Create the new dictionary to store selected orders for each clip and participant
-    selected_orders_dict = {}
+selected_orders_dict = {}
     
     # Create a list of available orders for each clip
-    available_orders = {clip_num: list(order_keys) for clip_num in clip_numbers}
+available_orders = {clip_num: list(order_keys) for clip_num in clip_numbers}
     
     # Iterate over num_participants
-    for participant_num in range(1, num_participants + 1):
-        selected_orders_dict[participant_num] = {}
+for participant_num in range(1, num_participants + 1):
+    selected_orders_dict[participant_num] = {}
         
         # Select an order for each clip
-        for clip_num in clip_numbers:
-            # Select a random order from available_orders for the current clip
-            selected_order = random.choice(available_orders[clip_num])
+    for clip_num in clip_numbers:
+        # Select a random order from available_orders for the current clip
+        selected_order = random.choice(available_orders[clip_num])
             
             # Remove the selected order from the available options
-            available_orders[clip_num].remove(selected_order)
+        available_orders[clip_num].remove(selected_order)
             
             # Add the selected order to the participant's entry in the dictionary
-            selected_orders_dict[participant_num][clip_num] = selected_order
+        selected_orders_dict[participant_num][clip_num] = selected_order
         
         # Check for duplicates within the current participant's selected orders
-        selected_orders_set = set()
-        has_duplicates = False
-        for selected_order in selected_orders_dict[participant_num].values():
-            if selected_order in selected_orders_set:
-                has_duplicates = True
-                break
-            else:
-                selected_orders_set.add(selected_order)
+        #selected_orders_set = set()
+        #has_duplicates = False
+        #for selected_order in selected_orders_dict[participant_num].values():
+            #if selected_order in selected_orders_set:
+                #has_duplicates = True
+                #break
+            #else:
+                #selected_orders_set.add(selected_order)
         
         # If duplicates are found, restart the loop to generate new orders
-        if has_duplicates:
-            break
-    else:
+        #if has_duplicates:
+            #break
+    #else:
         # If no duplicates are found for any participant, exit the loop
-        break
+        #break
 
 print("Selected orders dictionary:\n")
 print(selected_orders_dict)
@@ -353,12 +353,14 @@ for participant_group, participant_data in shuffled_dicts.items():
             "Clip 1": clip_data[1],
             "Clip 2": clip_data[2],
             "Clip 3": clip_data[3],
-            "Clip 4": clip_data[4]
+            "Clip 4": clip_data[4],
+            "Clip 5": clip_data[5],
+            "Clip 6": clip_data[6]
         }
         flattened_data.append(row)
         
 with open(csv_filename, 'w', newline='') as csvfile:
-    fieldnames = ["participant_number", "Clip 1", "Clip 2", "Clip 3", "Clip 4"]
+    fieldnames = ["participant_number", "Clip 1", "Clip 2", "Clip 3", "Clip 4", "Clip 5", "Clip 6"]
     csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     
     # Write header row
