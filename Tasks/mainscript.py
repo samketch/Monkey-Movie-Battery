@@ -357,11 +357,13 @@ if __name__ == "__main__":
         metacoll.rungui()
 
         probeorders = pd.read_csv("taskScripts/resources/Movie_Task/csv/counterbalanced_orders_n240.csv")
-        probeversions = 120
+        probeversions = 240
 
         if int(metacoll.INFO['Subject'])>probeversions:
                 probeiter = int(metacoll.INFO['Subject'])//probeversions
                 sub_probe = int(metacoll.INFO['Subject']) - (probeversions*probeiter)
+                if sub_probe == 0:
+                        sub_probe = probeversions
         else: 
                 sub_probe = int(metacoll.INFO['Subject'])
 
@@ -391,21 +393,23 @@ if __name__ == "__main__":
         #random_probe_version = random.randint(1,10)
 
         # Defining each task as a task object
-        movieTask1 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/The_Present.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,int(probe1_version))
-        movieTask2 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/goodBad.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 2,int(probe2_version))
-        movieTask3 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/despicable.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 3,int(probe3_version))
-        movieTask4 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/test1.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 4,int(probe4_version))
+        movieTask1 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/GoodBad1.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,int(probe1_version))
+        movieTask2 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/GoodBad2.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,int(probe1_version))
+        movieTask3 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/GoodBad3.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,int(probe1_version))
+        movieTask4 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/The_Present.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 2,int(probe2_version))
+        movieTask5 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/despicable.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 3,int(probe3_version))
+        movieTask6 = task(movieTask, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/test1.mp4"],"Movie Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 4,int(probe4_version))
 
         #moviegroup = [movieTask1,movieTask2,movieTask3]
 
-        moviegroup = [movieTask1, movieTask2, movieTask3, movieTask4]
+        moviegroup = [movieTask1, movieTask2, movieTask3, movieTask4, movieTask5, movieTask6]
         movie_main = taskgroup([moviegroup],"resources/group_inst/movie_main.txt")
 
 
         fulltasklist = [movie_main]
         
-        if config['randomize_task']:
-                fulltasklist = random.sample(list(fulltasklist),config['num_task_in_subset'])
+        #if config['randomize_task']:
+                #fulltasklist = random.sample(list(fulltasklist),config['num_task_in_subset'])
         
         
         # Shuffles the order of the tasks in taskgroups

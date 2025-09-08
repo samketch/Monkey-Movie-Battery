@@ -290,7 +290,7 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
             break
 
     #at the end of each clip, present comprehension questions
-    if filename[1] == "resources/Movie_Task/videos/goodBad.mp4":
+    if filename[1] == "resources/Movie_Task/videos/goodBad1.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 1, participant_id, videoname, responses_data)
@@ -298,43 +298,52 @@ def runexp(filename, timer, win, writer, resdict, runtime,dfile,seed,probever, p
         responses_data = present_comprehension_question(win, stim, 3, participant_id, videoname, responses_data)
         #responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 13, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 16, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
-        #core.quit() #use this to debug
 
-    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
+    if filename[1] == "resources/Movie_Task/videos/goodBad2.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 5, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 6, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
+        #responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 14, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 17, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
+    if filename[1] == "resources/Movie_Task/videos/goodBad3.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 7, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 9, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
+        #responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 15, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 18, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
+
+    if filename[1] == "resources/Movie_Task/videos/The_Present.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 10, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 11, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 16, participant_id, videoname, responses_data)
+        #responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 16, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 19, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
-
+    
+    if filename[1] == "resources/Movie_Task/videos/despicable.mp4":
+        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        clipname = base_name.split('.')[0]
+        responses_data = present_comprehension_question(win, stim, 13, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 14, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 15, participant_id, videoname, responses_data)
+        #responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
+        save_comp_csv(responses_data, participant_id, clipname, seed)
+        seen_data = present_seen_question(win, stim, 20, participant_id, videoname, seen_data)
+        save_seen_csv(seen_data, participant_id, clipname, seed)
 
     
     
